@@ -27,3 +27,11 @@ However, on average q<sub>s</sub> < q<sub>opt</sub> ∴ ϵ = 0.01 would be most 
 #### Ex2.4 If the step-size parameters, αn, are not constant, then the estimate Qn is a weighted average of previously received rewards with a weighting different from that given by (2.6). What is the weighting on each prior reward for the general case, analogous to (2.6), in terms of the sequence of step-size parameters?
 
 2.6: Q<sub>n+1</sub> = (1-α)<sup>n</sup>Q<sub>1</sub>  + \sum {i=1}^{n} α(1-α)<sup>n-i</sup>R<sub>i</sub>
+
+The general form:
+Q<sub>n+1</sub>  = Q<sub>n</sub> + α<sub>n</sub> (R<sub>n</sub> - Q<sub>n</sub> )
+			       = α<sub>n</sub>R<sub>n</sub> + (1-α<sub>n</sub>)Q<sub>n</sub> 
+			       = α<sub>n</sub>R<sub>n</sub> + (1-α<sub>n</sub>)(α<sub>n-1</sub>R<sub>n-1</sub> + (1-α<sub>n-1</sub>)Q<sub>n-1</sub>)
+			       = α<sub>n</sub>R<sub>n</sub> + (1-α<sub>n</sub>)α<sub>n-1</sub>R<sub>n-1</sub> +  (1-α<sub>n</sub>)(1-α<sub>n-1</sub>)Q<sub>n-1</sub>
+			       = \sum {i=1}^{n}(α<sub>i</sub>R<sub>i</sub> \sum {j=1}^{n-1}(1-α<sub>j</sub>)) + Q<sub>1</sub> \sum {i=1}^n(1-1-α<sub>i</sub>)
+			       
