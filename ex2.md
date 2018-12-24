@@ -31,8 +31,8 @@ However, on average q<sub>s</sub> < q<sub>opt</sub> ∴ ϵ = 0.01 would be most 
 The general form:
 
 - Q<sub>n+1</sub>  = Q<sub>n</sub> + α<sub>n</sub> (R<sub>n</sub> - Q<sub>n</sub> )
-- Q<sub>n+1</sub> 	= α<sub>n</sub> R<sub>n</sub> + (1 - α<sub>n</sub>) Q<sub>n</sub> 
-- Q<sub>n+1</sub> 	= α<sub>n</sub> R<sub>n</sub> + (1 - α<sub>n</sub>) (α<sub>n -1</sub>) R<sub>n -1</sub> + (1 - α<sub>n-1</sub>) Q<sub>n -1</sub> 
-- Q<sub>n+1</sub> 	= α<sub>n</sub> R<sub>n</sub> + (1 - α<sub>n</sub>) α<sub>n -1</sub> R<sub>n -1</sub> +  (1 -α<sub>n</sub>) (1 - α<sub>n -1</sub>) Q<sub>n -1</sub>
+- Q<sub>n+1</sub> 	= α<sub>n</sub>R<sub>n</sub> + (1 - α<sub>n</sub>)Q<sub>n</sub> 
+- Q<sub>n+1</sub> 	= α<sub>n</sub>R<sub>n</sub> + (1 - α<sub>n</sub>)((α<sub>n -1</sub>)R<sub>n -1</sub> + (1 - α<sub>n-1</sub>)Q<sub>n -1</sub> )
+- Q<sub>n+1</sub> 	= α<sub>n</sub>R<sub>n</sub> + (1 - α<sub>n</sub>)(α<sub>n -1</sub>)R<sub>n -1</sub> +  (1 -α<sub>n</sub>)(1 - α<sub>n -1</sub>)Q<sub>n -1</sub>
 - Q<sub>n+1</sub> 	= \sum {i=1}^{n}(α<sub>i</sub> R<sub>i</sub> \sum {j=1}^{n-1}(1 - α<sub>j</sub>)) + Q<sub>1</sub> \sum {i=1}^n(1 - α<sub>i</sub>)
 			       
