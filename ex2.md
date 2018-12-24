@@ -26,7 +26,7 @@ However, on average q<sub>s</sub> < q<sub>opt</sub> ∴ ϵ = 0.01 would be most 
 
 #### Ex2.4 If the step-size parameters, αn, are not constant, then the estimate Qn is a weighted average of previously received rewards with a weighting different from that given by (2.6). What is the weighting on each prior reward for the general case, analogous to (2.6), in terms of the sequence of step-size parameters?
 
-2.6: $Q<sub>n+1</sub> = (1-α)<sup>n</sup>Q<sub>1</sub>  + \sum_{i=1}^{n} α(1-α)<sup>n-i</sup>R<sub>i</sub>$
+2.6: Q<sub>n+1</sub> = (1-α)<sup>n</sup>Q<sub>1</sub>  + \sum_{i=1}^{n} α(1-α)<sup>n-i</sup>R<sub>i</sub>
 
 The general form:
 
@@ -34,5 +34,9 @@ The general form:
 - Q<sub>n+1</sub> 	= α<sub>n</sub>R<sub>n</sub> + (1 - α<sub>n</sub>)Q<sub>n</sub> 
 - Q<sub>n+1</sub> 	= α<sub>n</sub>R<sub>n</sub> + (1 - α<sub>n</sub>)((α<sub>n -1</sub>)R<sub>n -1</sub> + (1 - α<sub>n-1</sub>)Q<sub>n -1</sub> )
 - Q<sub>n+1</sub> 	= α<sub>n</sub>R<sub>n</sub> + (1 - α<sub>n</sub>)(α<sub>n -1</sub>)R<sub>n -1</sub> +  (1 -α<sub>n</sub>)(1 - α<sub>n -1</sub>)Q<sub>n -1</sub>
-- Q<sub>n+1</sub> 	= $\sum_{i=1}^{n}(α<sub>i</sub> R<sub>i</sub> \sum_{j=1}^{n-1}(1 - α<sub>j</sub>)) + Q<sub>1</sub> \sum_{i=1}^n(1 - α<sub>i</sub>)$
+- Q<sub>n+1</sub> 	= \sum_{i=1}^{n}(α<sub>i</sub> R<sub>i</sub> \sum_{j=1}^{n-1}(1 - α<sub>j</sub>)) + Q<sub>1</sub> \sum_{i=1}^n(1 - α<sub>i</sub>)
+
+#### Ex2.6: Mysterious Spikes The results shown in Figure 2.3 should be quite reliable because they are averages over 2000 individual, randomly chosen 10-armed bandit tasks. Why, then, are there oscillations and spikes in the early part of the curve for the optimistic method? In other words, what might make this method perform particularly better or worse, on average, on particular early steps?
+
+An initial estimate of +5 is wildly optimistic since  q∗<sub>a</sub> is selected from a normal distribution with mean 0 and variance 1. This optimism encourages action-value methods to explore. Whichever actions are initially selected, the reward is less than the starting estimates; the learner switches to other actions, being “disappointed” with the rewards it is receiving. The result is that all actions are tried several times before the value estimates converge. This leads to the spiking behaviour in the early part of the curve for the optimistic method
 			       
