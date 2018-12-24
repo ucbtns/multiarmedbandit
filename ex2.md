@@ -40,3 +40,7 @@ The general form:
 
 An initial estimate of +5 is wildly optimistic since  q∗<sub>a</sub> is selected from a normal distribution with mean 0 and variance 1. This optimism encourages action-value methods to explore. Whichever actions are initially selected, the reward is less than the starting estimates; the learner switches to other actions, being “disappointed” with the rewards it is receiving. The result is that all actions are tried several times before the value estimates converge. This leads to the spiking behaviour in the early part of the curve for the optimistic method
 			       
+			       
+#### Ex2.7 Show that in the case of two actions, the soft-max distribution is the same as that given by the logistic, or sigmoid, function often used in statistics and artificial neural networks.		
+
+Softmax is a generalised function of sigmoid -->  Pr(At=a) = 1 / (1 + e<sup>-H<sub>t</sub>(a)<sup>) where a is either 1,0
