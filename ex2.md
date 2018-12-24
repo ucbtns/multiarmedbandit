@@ -44,3 +44,14 @@ An initial estimate of +5 is wildly optimistic since  q∗<sub>a</sub> is select
 #### Ex2.7 Show that in the case of two actions, the soft-max distribution is the same as that given by the logistic, or sigmoid, function often used in statistics and artificial neural networks.		
 
 Softmax is a generalised function of sigmoid -->  Pr(At=a) = 1 / (1 + e<sup>-H<sub>t</sub>(a)</sup>) where a is either 1,0
+
+
+#### Ex2.8 Suppose you face a 2-armed bandit task whose true action values change randomly from time step to time step. Specifically, suppose that, for any time step, the true values of actions 1 and 2 are respectively 0.1 and 0.2 with probability 0.5 (case A), and 0.9 and 0.8 with probability 0.5 (case B). If you are not able to tell which case you face at any step, what is the best expectation of success you can achieve and how should you behave to achieve it? Now suppose that on each step you are told whether you are facing case A or case B (although you still don’t know the true action values). This is an associative search task. What is the best expectation of success you can achieve in this task, and how should you behave to achieve it?
+
+If we are not told which case we face at any step, the best one can do is the (weighted) average the Q values associated with each action across cases, and always pick the action that leads to the highest (weighted) average reward across all cases.
+
+In this case we are given the weights (0.5 for case A and 0.5 for case B), to the weighted average just corresponds to the average. Given that the average reward for action 1 and action 2 are both 0.5, in this case the choice of action doesn’t matter, as we expect – on average – to receive the same reward in the long run.
+
+To be able to achieve this optimal behavior, we could just use one of the standard stationary approaches, such as UCB with incremental Q value update. 
+
+If instead we were told what case we were facing, then we would want to run two separate nonstationary updates: instead of keeping one set of Q value estimates, we have one for case A and one for case B, and update them independently. If implemented correctly this would lead us to select action 2 in case A, and action 1 in case B.
